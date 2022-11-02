@@ -19,6 +19,7 @@ export function TodoListItem({
         id={item.id}
         type="checkbox"
         onChange={() => onComplete(item.id)}
+        className="rounded-full w-5 h-5 bg-transparent focus:border-0 focus:ring-0 checked:bg-purple checked:hover:bg-purple-dark border-2 border-blue-dark hover:border-blue transition-colors"
       />
 
       <label

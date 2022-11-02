@@ -23,16 +23,16 @@ export function TodoList({
 
   const TodoListInfo = () => (
     <div className="flex w-full justify-between mb-6">
-      <div className="flex gap-2 text-md">
+      <div className="flex items-center gap-2 text-md">
         <p className="text-blue">Tarefas criadas</p>
-        <span className="bg-gray-400 px-2 rounded-full text-gray-100 font-bold">
+        <span className="text-sm bg-gray-400 px-2 rounded-full text-gray-100 font-bold">
           {totalItems}
         </span>
       </div>
 
-      <div className="flex gap-2 text-md">
+      <div className="flex items-center gap-2 text-md">
         <p className="text-purple">Concluídas</p>
-        <span className="bg-gray-400 px-2 rounded-full text-gray-100 font-bold">
+        <span className="block text-sm  bg-gray-400 px-2 rounded-full text-gray-100 font-bold">
           {checkedItems === 0 ? "0" : `${checkedItems} de ${totalItems}`}
         </span>
       </div>

@@ -22,6 +22,7 @@ module.exports = {
       purple: "#8284FA",
       "purple-dark": "#5E60CE",
       danger: "#E25858",
+      transparent: "transparent",
     },
     extend: {
       fontFamily: {
@@ -29,5 +30,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
