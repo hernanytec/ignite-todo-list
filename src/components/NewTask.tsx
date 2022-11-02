@@ -1,11 +1,27 @@
+import { FormEvent, useState } from "react";
 import { CreateButton } from "./CreateButton";
 import { Input } from "./Input";
+interface NewTaskProps {
+  onAddTodo: (text: string) => void;
+}
+export function NewTask({ onAddTodo }: NewTaskProps) {
+  const [text, setText] = useState("");
 
-export function NewTask() {
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    onAddTodo(text);
+    setText("");
+  }
+
   return (
-    <div className="flex gap-2 w-[736px]">
-      <Input placeholder="Adicione uma nova tarefa" />
-      <CreateButton />
-    </div>
+    <form onSubmit={handleSubmit} className="flex gap-2 w-[736px]">
+      <Input
+        placeholder="Adicione uma nova tarefa"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <CreateButton type="submit" />
+    </form>
   );
 }
