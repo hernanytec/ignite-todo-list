@@ -1,5 +1,5 @@
+import Logo from "../assets/todo-logo.svg";
 import { NewTask } from "./NewTask";
-import Logo from "/public/todo-logo.svg";
 
 interface TodoListHeaderProps {
   onAddTodo: (text: string) => void;
