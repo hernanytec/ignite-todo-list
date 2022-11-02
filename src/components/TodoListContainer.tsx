@@ -6,6 +6,19 @@ import { TodoListHeader } from "./TodoListHeader";
 export function TodoListContainer() {
   const [todoItems, setTodoItems] = useState<ITodoListItem[]>([]);
 
+  const handleCompleteItem = (id: string) =>
+    setTodoItems((items) =>
+      items.map((item) => {
+        if (item.id === id) {
+          return { ...item, isCompleted: !item.isCompleted };
+        }
+        return item;
+      })
+    );
+
+  const handleDeleteItem = (id: string) =>
+    setTodoItems((items) => items.filter((item) => item.id !== id));
+
   return (
     <div className="h-screen bg-gray-600">
       <TodoListHeader
@@ -17,7 +30,11 @@ export function TodoListContainer() {
         }
       />
 
-      <TodoList items={todoItems} />
+      <TodoList
+        items={todoItems}
+        onCompleteItem={handleCompleteItem}
+        onDeleteItem={handleDeleteItem}
+      />
     </div>
   );
 }

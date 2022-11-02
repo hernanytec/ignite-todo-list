@@ -10,6 +10,8 @@ export function NewTask({ onAddTodo }: NewTaskProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
+    if (!text) return;
+
     onAddTodo(text);
     setText("");
   }
