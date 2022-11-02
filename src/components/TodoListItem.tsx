@@ -14,7 +14,7 @@ export function TodoListItem({
   onDelete,
 }: TodoListItemProps) {
   return (
-    <div className="flex justify-between bg-gray-500 py-4 px-5 rounded-lg">
+    <div className="flex justify-between items-center bg-gray-500 py-4 px-5 rounded-lg">
       <input
         id={item.id}
         type="checkbox"
@@ -24,7 +24,7 @@ export function TodoListItem({
       <label
         htmlFor={item.id}
         className={classNames(
-          "text-gray-100 text-start ml-3 w-full cursor-pointer",
+          "text-gray-100 text-start ml-3 w-full cursor-pointer overflow-hidden text-ellipsis",
           {
             "line-through": item.isCompleted,
             "text-gray-300": item.isCompleted,
@@ -35,8 +35,8 @@ export function TodoListItem({
       </label>
 
       <Trash
-        className="text-gray-300 cursor-pointer hover:text-danger transition-colors"
-        size={24}
+        className="text-gray-300 rounded-md p-1 cursor-pointer hover:bg-gray-400  hover:text-danger transition-colors"
+        size={32}
         onClick={() => onDelete(item.id)}
       />
     </div>
